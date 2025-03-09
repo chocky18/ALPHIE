@@ -1,0 +1,2 @@
+curl -X POST http://127.0.0.1:8000/auth/signup/ -H "Content-Type: application/json" -d "{\"email\": \"testuser@example.com\", \"password\": \"securepassword123\"}"
+curl -X POST "http://127.0.0.1:8000/auth/login/" -H "Content-Type: application/json" -d "{\"uid\": \"udPSifx0SgdATYQeAaz2HsIScfC2\"}"
