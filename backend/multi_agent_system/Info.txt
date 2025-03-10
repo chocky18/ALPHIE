@@ -1,0 +1,15 @@
+Mixture of Experts (MoE) Architecture: Understanding 
+1. What is Mixture of Experts (MoE)?
+MoE is a neural network architecture where multiple "expert" models specialize in different subsets of the input data. A gating network dynamically selects which experts contribute to a given input, making the model more efficient and scalable.
+
+2. Why is MoE Used in Industry?
+Scalability: Enables training very large-scale models while keeping compute costs reasonable.
+Efficiency: Activates only a subset of experts per input, reducing overall computations.
+Parallelization: Easily distributed across multiple GPUs/TPUs.
+Sparsity: Unlike dense models, MoE only activates a few experts, making it suitable for large-scale NLP and CV tasks.
+Adaptability: Allows specialization in different tasks within a single model.
+3. Industry Applications of MoE
+Google's Switch Transformer: Used in NLP, reducing training FLOPs significantly.
+OpenAI's GPT MoE Variants: Efficient large-scale LLM training.
+DeepMind’s GShard: Used for translation models.
+Vision Tasks: Applied in classification, object detection, and segmentation.
