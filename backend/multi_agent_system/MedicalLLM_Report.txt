@@ -1,0 +1,85 @@
+**Evaluation Report on Finetuned and Quantized Medical Language Models**
+
+## **1. Introduction**
+
+In this study, we tested various fine-tuned and quantized medical language models to determine their efficiency, accuracy, and suitability for real-world applications. The goal was to identify the best model based on its size, inference speed, and ability to generate accurate medical responses. We also explored potential improvements using Mixture of Experts (MoE) architectures.
+
+---
+
+## **2. Models Tested**
+
+Below is a list of the models we evaluated:
+
+### **2.1 Finetuned Models**
+
+1. **BioMistral-7B** - A biomedical domain adaptation of Mistral.
+2. **LiteLLMs/Llama3-OpenBioLLM-70B** - A LLaMA3-based model fine-tuned on biomedical datasets.
+3. **wanglab/ClinicalCamel-70B** - A large-scale fine-tuned medical model based on the Camel family.
+
+### **2.2 Quantized Models**
+
+1. **BioMistral-7B.Q4\_K\_M.gguf** - A 4-bit quantized version of BioMistral-7B.
+2. **TheBloke/qCammel-13-AWQ** - A quantized version of ClinicalCamel-13B using AWQ (Activation-aware Weight Quantization).
+
+---
+
+## **3. Model Comparison**
+
+| Model Name                  | Architecture  | Size | Quantized?  | Speed  | Medical Accuracy |
+| --------------------------- | ------------- | ---- | ----------- | ------ | ---------------- |
+| BioMistral-7B               | Mistral-based | 7B   | No          | Medium | High             |
+| Llama3-OpenBioLLM-70B       | LLaMA3        | 70B  | No          | Slow   | Very High        |
+| ClinicalCamel-70B           | LLaMA3        | 70B  | No          | Slow   | Very High        |
+| BioMistral-7B.Q4\_K\_M.gguf | Mistral-based | 7B   | Yes (4-bit) | Fast   | Medium           |
+| TheBloke/qCammel-13-AWQ     | LLaMA-based   | 13B  | Yes (AWQ)   | Fast   | High             |
+
+### **Key Observations:**
+
+- **Best for Performance & Speed:** The **quantized models** performed much faster than their full-sized counterparts.
+- **Best for Accuracy:** Llama3-OpenBioLLM-70B and ClinicalCamel-70B provided highly accurate responses but were computationally expensive.
+- **Best Trade-off (Accuracy vs. Speed):** TheBloke/qCammel-13-AWQ had a good balance between response quality and performance.
+- **Lightweight Models:** The 4-bit quantized models (BioMistral-7B.Q4\_K\_M.gguf) were the most efficient in terms of memory and speed.
+
+---
+
+## **4. Choosing the Best Model for Different Use Cases**
+
+| Use Case                         | Recommended Model           |
+| -------------------------------- | --------------------------- |
+| Low-latency medical chatbots     | TheBloke/qCammel-13-AWQ     |
+| High-accuracy medical diagnosis  | Llama3-OpenBioLLM-70B       |
+| Mobile or edge AI deployment     | BioMistral-7B.Q4\_K\_M.gguf |
+| Research and knowledge retrieval | ClinicalCamel-70B           |
+
+---
+
+## **5. Improving Performance with Mixture of Experts (MoE)**
+
+To further optimize performance and efficiency, we can introduce **Mixture of Experts (MoE)** into these models. MoE allows dynamic routing of tasks to specialized experts, improving efficiency while maintaining accuracy.
+
+### **How to Integrate MoE into These Models:**
+
+1. **Select Base Model:** Choose a high-performing model like Llama3-OpenBioLLM-70B.
+2. **Divide the Model into Experts:** Implement multiple sub-models (experts) that specialize in different medical domains (e.g., radiology, cardiology, oncology).
+3. **Train an Expert Router:** Use a lightweight gating network to direct queries to the appropriate expert based on the input.
+4. **Quantize Experts Separately:** To reduce memory usage, apply quantization techniques like AWQ or GPTQ to individual experts rather than the entire model.
+5. **Deploy with Dynamic Routing:** Implement MoE inference, allowing only the relevant experts to activate during a query, reducing computational overhead.
+
+By leveraging MoE, we can achieve **higher efficiency**, **lower inference time**, and **improved specialization** in medical language models.
+
+---
+
+## **6. Conclusion**
+
+After evaluating multiple fine-tuned and quantized models, we conclude:
+
+- **For high accuracy**, Llama3-OpenBioLLM-70B is the best choice.
+- **For lightweight and fast inference**, TheBloke/qCammel-13-AWQ and BioMistral-7B.Q4\_K\_M.gguf are ideal.
+- **To enhance efficiency**, integrating MoE can significantly optimize performance while maintaining high accuracy.
+
+For practical applications, selecting a model depends on the balance between accuracy, efficiency, and deployment constraints. Future improvements should focus on hybrid MoE and quantization techniques to maximize both performance and precision.
+
+---
+
+
+

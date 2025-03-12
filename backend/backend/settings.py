@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'video_conferencing',
     'medication',
     'health_monitoring',
-    'multi_agent_system',
+    "multi_agent_system"
 ]
 
 MIDDLEWARE = [
