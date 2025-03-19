@@ -27,8 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AIDBOX_URL = "http://localhost:8888/fhir"
+AIDBOX_USERNAME = "root"
+AIDBOX_PASSWORD = "secret"
+AIDBOX_LICENSE_KEY = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJvZmZsaW5lIjpmYWxzZSwiY3JlYXRvciI6eyJpZCI6IjkxYmY2NWU3LTk1ODMtNDA5NS1iOWVkLTU2OTQzYzllY2QxNiIsInJlc291cmNlVHlwZSI6IlVzZXIifSwia2V5Ijoib25saW5lLTIwMjIwNTI0LTE0MzY0NyIsIm5hbWUiOiJBTFBISUUiLCJleHBpcmF0aW9uIjoiMjEyNC0wMi0xOFQwOTowNzozNy4xOTBaIiwidHlwZSI6ImRldmVsb3BtZW50IiwiY3JlYXRlZCI6IjIwMjUtMDMtMTNUMDk6MDc6MzcuMTkwWiIsIm1heC1pbnN0YW5jZXMiOjIsIm1heC1kYi1zaXplIjo1MzY4NzA5MTIwLCJwcm9kdWN0IjoiYWlkYm94IiwicHJvamVjdCI6eyJpZCI6IjA5YWI3NDAwLTM5NmUtNGFlNi05NzQ3LWM0ZDNmY2QxMTQ2NiIsInJlc291cmNlVHlwZSI6IlByb2plY3QifSwic3RhdHVzIjoiYWN0aXZlIiwiaWQiOiI0MjFkMjIzZi02M2ViLTQ5NTItOWNjNS04Mjc2MTA2NGEzMDgiLCJpbmZvIjp7ImdvYWwiOiJyZXNlYXJjaCIsImhvc3RpbmciOiJzZWxmLWhvc3RlZCJ9LCJpc3N1ZXIiOiJodHRwczovL2FpZGJveC5hcHAifQ.F2p3NWot6UU7MdWuYLvbidTQDnuOE_9dfZoeHrf34SYhMwKzEeeTo_m_A_L_h3FmasCfEWdQVJlyDypzIS3y7ICV5pVgXp5wP2iEdFxNuu2PuQg9cklee5ZTRkFsUuxjMozo81C0kV8F_jSAgNOdkgDfSaQ4klN4qXLj0vkzzfA"
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,9 +43,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication',
     'video_conferencing',
-    'medication',
+    'EHR',
     'health_monitoring',
-    "multi_agent_system"
+    "multi_agent_system",
+    
+    
 ]
 
 MIDDLEWARE = [

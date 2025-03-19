@@ -1,0 +1,43 @@
+What is an EHR System?
+An Electronic Health Record (EHR) system is a digital version of a patient's medical history maintained over time. It contains all critical medical data, including:
+✅ Personal Information (Name, Age, Gender, Contact Details)
+✅ Medical History (Past Diagnoses, Surgeries, Medications)
+✅ Vital Signs & Real-Time Data (ECG, IMU, Blood Pressure)
+✅ Lab Results & Imaging Reports
+✅ Doctor’s Notes & Prescriptions
+✅ Treatment Plans & Follow-ups
+
+Unlike traditional paper records, EHR systems provide secure, real-time access to medical data for healthcare professionals while ensuring privacy and compliance with regulations like HIPAA (US) or GDPR (EU).
+
+
+What is FHIR/HL7?
+FHIR (Fast Healthcare Interoperability Resources) and HL7 (Health Level Seven) are standards designed to structure, exchange, and manage healthcare data securely and efficiently. They ensure that different healthcare systems (EHRs, medical devices, hospitals, etc.) can communicate seamlessly.
+
+
+2️⃣ FHIR (Fast Healthcare Interoperability Resources)
+FHIR is a modern, web-based standard introduced by HL7 in 2014. It’s designed to make health data exchange easier using RESTful APIs, JSON, and XML.
+
+FHIR Architecture
+FHIR organizes health data into "Resources," which are modular data units representing different types of medical information.
+
+🔹 Patient – Personal details (Name, DOB, Gender, ID, etc.)
+🔹 Observation – Vital signs, lab results, ECG, etc.
+🔹 Medication – Prescriptions, dosage, administration details
+🔹 Encounter – Doctor visits, hospital admissions
+🔹 ImagingStudy – X-rays, MRIs, ECG, and IMU data
+
+Why Use FHIR for Your Health Bot?
+Since your bot continuously collects ECG & IMU data, FHIR is the best choice because:
+✅ Interoperability – Connects with existing hospital EHRs (Google/AWS/Azure FHIR Servers)
+✅ Security & Compliance – HIPAA & GDPR compliant
+✅ Real-Time Access – Works with AI, mobile apps, and IoT devices
+✅ Scalability – Easily integrates with cloud services
+
+
+ What is Aidbox?
+Aidbox is a FHIR-based clinical data platform that provides:
+✅ FHIR-native storage (No need for extra configurations)
+✅ Flexible REST API for integrating with web apps, Python, and mobile apps
+✅ PostgreSQL backend for scalability
+✅ Python-friendly (Works with FastAPI, Flask, Django)
+✅ Self-hosted or cloud deployment

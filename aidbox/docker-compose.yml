@@ -1,0 +1,41 @@
+volumes:
+  aidbox_pg_data: {}
+services:
+  aidbox_db:
+    image: healthsamurai/aidboxdb:17
+    volumes:
+    - aidbox_pg_data:/var/lib/postgresql/data:delegated
+    environment:
+      POSTGRES_USER: aidbox
+      POSTGRES_PORT: '5432'
+      POSTGRES_DB: aidbox
+      POSTGRES_PASSWORD: 4jKrS3vbDO
+  aidbox:
+    image: healthsamurai/aidboxone:edge
+    pull_policy: always
+    depends_on:
+    - aidbox_db
+    ports:
+    - 8080:8080
+    environment:
+      AIDBOX_TERMINOLOGY_SERVICE_BASE_URL: https://tx.health-samurai.io/fhir
+      AIDBOX_FHIR_PACKAGES: hl7.fhir.r4.core#4.0.1
+      AIDBOX_LICENSE: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJvZmZsaW5lIjpmYWxzZSwiY3JlYXRvciI6eyJpZCI6IjkxYmY2NWU3LTk1ODMtNDA5NS1iOWVkLTU2OTQzYzllY2QxNiIsInJlc291cmNlVHlwZSI6IlVzZXIifSwia2V5Ijoib25saW5lLTIwMjIwNTI0LTE0MzY0NyIsIm5hbWUiOiJBTFBISUUiLCJleHBpcmF0aW9uIjoiMjEyNC0wMi0xOFQwOTowNzozNy4xOTBaIiwidHlwZSI6ImRldmVsb3BtZW50IiwiY3JlYXRlZCI6IjIwMjUtMDMtMTNUMDk6MDc6MzcuMTkwWiIsIm1heC1pbnN0YW5jZXMiOjIsIm1heC1kYi1zaXplIjo1MzY4NzA5MTIwLCJwcm9kdWN0IjoiYWlkYm94IiwicHJvamVjdCI6eyJpZCI6IjA5YWI3NDAwLTM5NmUtNGFlNi05NzQ3LWM0ZDNmY2QxMTQ2NiIsInJlc291cmNlVHlwZSI6IlByb2plY3QifSwic3RhdHVzIjoiYWN0aXZlIiwiaWQiOiI0MjFkMjIzZi02M2ViLTQ5NTItOWNjNS04Mjc2MTA2NGEzMDgiLCJpbmZvIjp7ImdvYWwiOiJyZXNlYXJjaCIsImhvc3RpbmciOiJzZWxmLWhvc3RlZCJ9LCJpc3N1ZXIiOiJodHRwczovL2FpZGJveC5hcHAifQ.F2p3NWot6UU7MdWuYLvbidTQDnuOE_9dfZoeHrf34SYhMwKzEeeTo_m_A_L_h3FmasCfEWdQVJlyDypzIS3y7ICV5pVgXp5wP2iEdFxNuu2PuQg9cklee5ZTRkFsUuxjMozo81C0kV8F_jSAgNOdkgDfSaQ4klN4qXLj0vkzzfA
+      AIDBOX_FHIR_SCHEMA_VALIDATION: true
+      AIDBOX_CREATED_AT_URL: https://aidbox.app/ex/createdAt
+      BOX_SETTINGS_MODE: read-write
+      AIDBOX_CLIENT_SECRET: rS5wcEQgYo
+      AIDBOX_CORRECT_AIDBOX_FORMAT: true
+      AIDBOX_ADMIN_PASSWORD: 8kMsT4wcEP
+      AIDBOX_COMPLIANCE: enabled
+      AIDBOX_SECURITY_AUDIT__LOG_ENABLED: true
+      BOX_SEARCH_FHIR__COMPARISONS: true
+      PGHOST: aidbox_db
+      BOX_COMPATIBILITY_VALIDATION_JSON__SCHEMA_REGEX: '#{:fhir-datetime}'
+      BOX_SEARCH_AUTHORIZE_INLINE_REQUESTS: true
+      PGUSER: aidbox
+      AIDBOX_PORT: 8080
+      PGDATABASE: aidbox
+      PGPASSWORD: 4jKrS3vbDO
+      PGPORT: '5432'
+      BOX_SEARCH_INCLUDE_CONFORMANT: true
